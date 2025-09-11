@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nebulaai/react-hooks.git"
+    "url": "https://github.com/nebulaaitech/react-hooks.git"
   },
   "peerDependencies": {
     "react": "^18.0.0",
