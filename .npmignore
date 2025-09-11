@@ -1,0 +1,22 @@
+# Don’t publish raw source
+src/
+*.ts
+*.tsx
+
+# Don’t publish tests
+__tests__/
+*.test.*
+*.spec.*
+
+# Don’t publish config files
+tsconfig.json
+rollup.config.js
+webpack.config.js
+vite.config.js
+*.config.*
+
+# Don’t publish local/dev stuff
+node_modules/
+.env
+*.log
+.DS_Store
