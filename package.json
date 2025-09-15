@@ -1,46 +1,31 @@
+
 {
-  "name": "@nebulaai/react-hooks",
+  "name": "@nebulaai/charts",
   "version": "1.0.0",
-  "description": "Open source React hooks collection for common patterns and utilities",
+  "description": "Comprehensive charting library with real-time updates and interactive visualizations",
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
-  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md"],
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
-    "prepublishOnly": "npm run build"
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch"
   },
-  "keywords": [
-    "react",
-    "hooks",
-    "open-source",
-    "utilities",
-    "community",
-    "nebulaai"
-  ],
-  "author": "NebulaAI Community",
+  "keywords": ["charts", "visualization", "graphs", "real-time", "interactive"],
+  "author": "NebulaAI",
   "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/nebulaaitech/react-hooks.git"
-  },
   "peerDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": ">=16.8.0"
   },
   "devDependencies": {
-    "@types/react": "^18.3.11",
-    "@types/react-dom": "^18.3.1",
-    "typescript": "^5.0.0"
-  },
-  "engines": {
-    "node": ">=16.0.0"
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2"
   }
 }
