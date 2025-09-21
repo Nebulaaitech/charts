@@ -1,18 +1,13 @@
-name: Publish Package
+name: publish
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-      packages: write
-      id-token: write
 
     steps:
       - name: Checkout code
@@ -21,15 +16,14 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '20'
           registry-url: 'https://registry.npmjs.org/'
-          always-auth: true
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build (if applicable)
-        run: npm run build || echo "No build step"
+      - name: Build package
+        run: npm run build
 
       - name: Publish to npm
         run: npm publish --access public
